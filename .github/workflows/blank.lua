@@ -9,7 +9,6 @@ blacklist = {
     {x = 1, y = -1}
 }
 
-itmId = 4584 -- Item id
 itmSeed = itmId + 1 -- Item seed / Dont edit
 
 delayHarvest = 130
