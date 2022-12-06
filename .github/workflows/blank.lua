@@ -65,7 +65,6 @@ profit = 0
 listNow = 1
 strWaktu = ""
 t = os.time()
-cekdcs = "https://discord.com/api/webhooks/1044459626298621983/CUMAN2McLkiiWg1ibNv5mfx0AEO-Ggp03zbU5_CEkZX6_BKYd9Ini4dfc4nN__zAfn85"
 iddcs = Bot[getBot().name:upper()].iddc
 start = Bot[getBot().name:upper()].startFrom
 stop = #Bot[getBot().name:upper()].worldList
