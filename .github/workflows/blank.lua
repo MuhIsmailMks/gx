@@ -877,37 +877,49 @@ function whgoo(hii)
     file:close()
 end
 
+function hiku()
+    if getBot().status ~= "Online" then
+            hiik = hiik + 5
+        end
+    if getBot().status == "Online" then
+            hiik = 0
+        end
+    end
 
 local thread = createThread(function()
     local i = 0
     while true do
-        if getBot().status ~= "Online" then
-            hiik = hiik + 5
-        end
-        if getBot().status == "Online" then
-            hiik = 0
-        end
-        sleep(49900)
-        gm1 = findItem(112)
-        sleep(100)
-        huun()
         sleep(90000)
+        gm1 = findItem(112)
+        sleep(500)
+        huun()
+        sleep(1000)
+        hiku()
+        sleep(180000)
         gm2 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(90000)
+        sleep(1000)
+        hiku()
+        sleep(180000)
         gm3 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(90000)
+        sleep(1000)
+        hiku()
+        sleep(180000)
         gm4 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(90000)
+        sleep(1000)
+        hiku()
+        sleep(180000)
         gm5 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(40000)
+        sleep(1000)
+        hiku()
+        sleep(90000)
     end
   end)
 
