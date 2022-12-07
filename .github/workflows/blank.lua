@@ -887,27 +887,27 @@ local thread = createThread(function()
         if getBot().status == "Online" then
             hiik = 0
         end
-        sleep(29900)
+        sleep(49900)
         gm1 = findItem(112)
         sleep(100)
         huun()
-        sleep(60000)
+        sleep(90000)
         gm2 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(60000)
+        sleep(90000)
         gm3 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(60000)
+        sleep(90000)
         gm4 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(60000)
+        sleep(90000)
         gm5 = findItem(112) - gm1
         sleep(500)
         huun()
-        sleep(30000)
+        sleep(40000)
     end
   end)
 
