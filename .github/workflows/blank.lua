@@ -879,7 +879,7 @@ end
 
 function hiku()
     if getBot().status ~= "Online" then
-            hiik = hiik + 5
+            hiik = hiik + 3
         end
     if getBot().status == "Online" then
             hiik = 0
