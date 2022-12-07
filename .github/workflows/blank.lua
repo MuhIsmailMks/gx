@@ -173,9 +173,9 @@ function warp(world,id)
             reconnect(world,id)
             sleep(1000)
         end
-        sleep(3000)
-        sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
         sleep(5000)
+        sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
+        sleep(10000)
         if cok == 20 then
             nuked = true
         else
