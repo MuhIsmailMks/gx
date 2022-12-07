@@ -852,7 +852,7 @@ function huun()
     local ggh = [[
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ | ]]..gm1..[[   ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[   ]]..gm5..[["
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..hiik..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ | ]]..gm1..[[   ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[   ]]..gm5..[["
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
@@ -880,6 +880,12 @@ end
 local thread = createThread(function()
     local i = 0
     while true do
+        if getBot().status ~= "Online" then
+            hiik = hiik + 5
+        end
+        if getBot().status == "Online" then
+            hiik = 0
+        end
         sleep(29900)
         gm1 = findItem(112)
         sleep(100)
