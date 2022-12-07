@@ -60,6 +60,7 @@ fossil = {}
 tileBreak = {}
 onlen = os.time()
 loop = 0
+hiik = 0
 profit = 0
 listNow = 1
 strWaktu = ""
