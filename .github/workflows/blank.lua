@@ -881,7 +881,7 @@ end
 
 function hiku()
     if getBot().status ~= "Online" then
-            hiik = hiik + 3
+            hiik = hiik + 2
         end
     if getBot().status == "Online" then
             hiik = 0
@@ -891,31 +891,31 @@ function hiku()
 local thread = createThread(function()
     local i = 0
     while true do
-        sleep(90000)
+        sleep(60000)
         gm1 = findItem(112)
         sleep(500)
         huun()
         sleep(1000)
         hiku()
-        sleep(180000)
+        sleep(120000)
         gm2 = findItem(112) - gm1
         sleep(500)
         huun()
         sleep(1000)
         hiku()
-        sleep(180000)
+        sleep(120000)
         gm3 = findItem(112) - gm1
         sleep(500)
         huun()
         sleep(1000)
         hiku()
-        sleep(180000)
+        sleep(120000)
         gm4 = findItem(112) - gm1
         sleep(500)
         huun()
         sleep(1000)
         hiku()
-        sleep(90000)
+        sleep(60000)
     end
   end)
 
