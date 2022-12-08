@@ -851,9 +851,10 @@ function huun()
         hii = ":red_circle:"
     end
     local ggh = [[
+    $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..hiik..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ | ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[   ]]..gm5..[["
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..hiik..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ | ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[   ]]..gm5..[[  $CPU%"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
@@ -935,7 +936,6 @@ while true do
     ontbs = math.floor(ontb%86400/3600)
     if ontbs >= 6 then
         disconnect()
-        whgoo("bot recon")
         onlen = os.time()
     end
     sleep(200)
