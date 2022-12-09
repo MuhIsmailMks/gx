@@ -854,7 +854,7 @@ function huun()
     $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..hiik..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ | ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[  | $CPU%"
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hiik..[[ | ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[  | $CPU%"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
