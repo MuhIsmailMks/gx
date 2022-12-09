@@ -402,7 +402,7 @@ function reconnect(world,id,x,y)
                 end
             end
         end
-        botInfo("Succesfully Reconnected")
+        huun()
         sleep(1000)
         reconInfo()
         sleep(1000)
