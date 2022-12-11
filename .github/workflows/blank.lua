@@ -921,6 +921,12 @@ local thread = createThread(function()
 
 thread:resume()
 sleep(5000)
+while getBot().status ~= "Online" do
+    sleep(5000)
+    if getBot().status == "Online" then
+        break
+        end
+    end
 while true do
     whgoo("Start")
     sleep(2000)
