@@ -373,7 +373,8 @@ function reconnect(world,id,x,y)
         reconInfo()
         sleep(1000)
         while true do
-            sleep(5000)
+            connect()
+            sleep(150000)
             while getBot().status == "Online" and getBot().world ~= world:upper() do
                 sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
                 sleep(10000)
