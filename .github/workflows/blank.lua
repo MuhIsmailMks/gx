@@ -881,7 +881,7 @@ function whgoo(hii)
 end
 
 while true do
-    whgoo("Start")
+    huun("start")
     sleep(2000)
     for index,world in pairs(worlds) do
     waktuWorld()
