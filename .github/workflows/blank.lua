@@ -901,13 +901,11 @@ while true do
             sleep(100)
             bl(world)
             sleep(100)
-            botInfo("Starting "..world)
             sleep(100)
             tt = os.time()
             harvest(world)
             sleep(100)
             tt = os.time() - tt
-            botInfo("Finished "..world)
             sleep(100)
             waktu[world] = math.floor(tt/3600).." Hours "..math.floor(tt%3600/60).." Minutes"
             sleep(100)
