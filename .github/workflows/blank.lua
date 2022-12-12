@@ -176,7 +176,7 @@ function warp(world,id)
         sleep(5000)
         sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
         sleep(10000)
-        if cok == 20 then
+        if cok == 2 then
             nuked = true
         else
             cok = cok + 1
@@ -373,8 +373,10 @@ function reconnect(world,id,x,y)
         reconInfo()
         sleep(1000)
         while true do
+            disconnect()
+            sleep(60000)
             connect()
-            sleep(150000)
+            sleep(120000)
             while getBot().status == "Online" and getBot().world ~= world:upper() do
                 sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
                 sleep(10000)
@@ -402,14 +404,14 @@ function reconnect(world,id,x,y)
                     end
                 end
             end
+            hiik = hiik + 3
+            huun("reconnect")
         end
-        huun()
         sleep(1000)
-        reconInfo()
-        sleep(1000)
-        botInfo("Farming")
+        huun("farming")
         sleep(100)
         recon = false
+        hiik = 0
     end
 end
 
@@ -501,7 +503,6 @@ function infoPack()
 end
 
 function join()
-    botInfo("Clearing World Logs")
     sleep(100)
     for _,wurld in pairs(worldToJoin) do
         warp(wurld,"")
@@ -511,7 +512,7 @@ function join()
 end
 
 function storeSeed(world)
-    botInfo("Storing Seed")
+    huun("seed")
     sleep(100)
     collectSet(false,3)
     sleep(100)
@@ -552,7 +553,7 @@ function storeSeed(world)
 end
 
 function buy()
-    botInfo("Buying and Storing Pack")
+    huun("pack")
     sleep(100)
     collectSet(false,3)
     sleep(100)
@@ -726,7 +727,7 @@ function pnb(world)
 end
 
 function harvest(world)
-    botInfo("Farming")
+    huun("farming")
     sleep(100)
     tree[world] = 0
     if dontPlant then
@@ -844,7 +845,7 @@ function harvest(world)
     end
 end
 
-function huun()
+function huun(nbbz)
     if getBot().status == "Online" then
         hii = ":green_circle:"
        end
@@ -855,7 +856,7 @@ function huun()
     $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hiik..[[ | ]]..gm2..[[   ]]..gm3..[[   ]]..gm4..[[  | $CPU%"
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hii..[[ "]]..nbbz..[["  | ]]..world..[[  $CPU%"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
@@ -879,48 +880,6 @@ function whgoo(hii)
     file:close()
 end
 
-function hiku()
-    if getBot().status ~= "Online" then
-            hiik = hiik + 2
-        end
-    if getBot().status == "Online" then
-            hiik = 0
-        end
-    end
-
-local thread = createThread(function()
-    local i = 0
-    while true do
-        sleep(60000)
-        gm1 = findItem(112)
-        sleep(500)
-        huun()
-        sleep(1000)
-        hiku()
-        sleep(120000)
-        gm2 = findItem(112) - gm1
-        sleep(500)
-        huun()
-        sleep(1000)
-        hiku()
-        sleep(120000)
-        gm3 = findItem(112) - gm1
-        sleep(500)
-        huun()
-        sleep(1000)
-        hiku()
-        sleep(120000)
-        gm4 = findItem(112) - gm1
-        sleep(500)
-        huun()
-        sleep(1000)
-        hiku()
-        sleep(60000)
-    end
-  end)
-
-thread:resume()
-sleep(5000)
 while true do
     whgoo("Start")
     sleep(2000)
