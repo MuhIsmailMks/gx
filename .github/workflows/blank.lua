@@ -52,6 +52,7 @@ items = {
 } -- List of item info
 
 ------------------ Dont Touch ------------------
+hii = ":red_circle:"
 list = {}
 tree = {}
 waktu = {}
@@ -373,6 +374,7 @@ function reconnect(world,id,x,y)
         reconInfo()
         sleep(1000)
         while true do
+            huun("reconnect")
             disconnect()
             sleep(60000)
             connect()
@@ -405,10 +407,9 @@ function reconnect(world,id,x,y)
                 end
             end
             hiik = hiik + 3
-            huun("reconnect")
         end
         sleep(1000)
-        huun("farming")
+        huun("re/farm")
         sleep(100)
         recon = false
         hiik = 0
@@ -586,6 +587,7 @@ function buy()
 end
 
 function clear()
+    huun("farm")
     for _,item in pairs(getInventory()) do
         if not includesNumber(goods, item.id) then
             sendPacket(2, "action|trash\n|itemID|"..item.id)
@@ -727,7 +729,7 @@ function pnb(world)
 end
 
 function harvest(world)
-    huun("farming")
+    huun("harvest")
     sleep(100)
     tree[world] = 0
     if dontPlant then
@@ -856,7 +858,7 @@ function huun(nbbz)
     $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hii..[[ "]]..nbbz..[["  | ]]..getBot().world..[[  $CPU%"
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..nbbz..[[ ]]..hiik..[[ | $CPU% ]]..getBot().world..[[ (]]..(os.date("!%d", os.time() + 7 * 60 * 60))..[[)"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
@@ -866,19 +868,6 @@ function huun(nbbz)
     file:close()
 end
 
-function whgoo(hii)
-    local text = [[
-        $webHookUrl = "]]..webhookOffline..[["
-        $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[["
-        }
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Post -ContentType 'application/json'
-    ]]
-    local file = io.popen("powershell -command -", "w")
-    file:write(text)
-    file:close()
-end
 
 while true do
     huun("start")
