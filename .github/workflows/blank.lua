@@ -856,7 +856,7 @@ function huun(nbbz)
     $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hii..[[ "]]..nbbz..[["  | ]]..world..[[  $CPU%"
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..hii..[[ "]]..nbbz..[["  | ]]..getBot().world..[[  $CPU%"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
