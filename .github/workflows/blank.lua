@@ -80,7 +80,7 @@ gm2 = "0"
 gm3 = "0"
 gm4 = "0"
 gm5 = "0"
-
+pekk = "0"
 
 for i = start,#worldList do
     table.insert(worlds,worldList[i])
@@ -576,6 +576,7 @@ function buy()
         end
         storePack()
         sleep(100)
+        pekk = (os.date("!%d", os.time() + 7 * 60 * 60))
         reconnect(storagePack,doorPack)
     end
     packInfo(webhookLinkPack,messageIdPack,infoPack())
@@ -858,7 +859,7 @@ function huun(nbbz)
     $CPU = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average | Select -ExpandProperty Average
         $webHookUrl = "]]..cekdcs..[[/messages/]]..iddcs..[["
         $payload = @{
-            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..nbbz..[[ ]]..hiik..[[ | $CPU% ]]..getBot().world..[[ (]]..(os.date("!%d", os.time() + 7 * 60 * 60))..[[)"
+            content = "]]..rdpnam..[[ - ]]..Bot[getBot().name:upper()].slot..[[ ]]..hii..[[ ]]..(os.date("!%H:%M", os.time() + 7 * 60 * 60))..[[ ]]..nbbz..[[ ]]..hiik..[[ | $CPU% ]]..getBot().world..[[ (]]..pekk..[[)"
         }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Patch -ContentType 'application/json'
